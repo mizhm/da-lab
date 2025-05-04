@@ -47,8 +47,13 @@ print(df_num_3_col.describe())
 
 
 #Cau 6
+import seaborn as sns
 # Tính ma trận tương quan
 correlation_matrix = df.corr()
+cmap = sns.diverging_palette(230, 10, as_cmap=True)
+sns.heatmap(correlation_matrix, cmap=cmap, annot=True)
+plt.show()
+
 
 # Lấy hàng tương quan với cột 'quality'
 quality_correlation = correlation_matrix['quality'].sort_values(ascending=False)
